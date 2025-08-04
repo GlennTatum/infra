@@ -50,10 +50,10 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "charlie" do |charlie|
-    bravo.vm.box = "debian/bullseye64"
-    bravo.vm.box_version = "11.20241217.1"
+    charlie.vm.box = "debian/bullseye64"
+    charlie.vm.box_version = "11.20241217.1"
 
-    bravo.vm.network :private_network, :ip => "10.240.0.15"
+    charlie.vm.network :private_network, :ip => "10.240.0.15"
   end
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

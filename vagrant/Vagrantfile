@@ -40,7 +40,6 @@ Vagrant.configure("2") do |config|
     alpha.vm.network "forwarded_port", guest: 80, host: 80
     alpha.vm.network "forwarded_port", guest: 443, host: 443
     alpha.vm.network "forwarded_port", guest: 6443, host: 6443
-    alpha.vm.network "forwarded_port", guest: 22, host: 22
   end
 
   config.vm.define "bravo" do |bravo|
@@ -50,6 +49,12 @@ Vagrant.configure("2") do |config|
     bravo.vm.network :private_network, :ip => "10.240.0.10"
   end
 
+  config.vm.define "charlie" do |charlie|
+    bravo.vm.box = "debian/bullseye64"
+    bravo.vm.box_version = "11.20241217.1"
+
+    bravo.vm.network :private_network, :ip => "10.240.0.15"
+  end
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.

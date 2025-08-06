@@ -1,4 +1,4 @@
-kube-config
-kubectl
+k8s/kube-config.yml
+k8s/kubectl
 
 .vagrant/

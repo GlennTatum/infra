@@ -3,9 +3,7 @@ Developer friendly Kubernetes Infrastructure
 
 ### TODO
 - Configure k0s.yaml
-- Configure nginx ingress controller
-    - https://docs.nginx.com/nginx-ingress-controller/installation/installing-nic/installation-with-manifests/
-
+- Configure HAProxy to route 80 -> 30080 and 443 -> 300443
 
 
 ### Pre-Requisites

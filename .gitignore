@@ -1,4 +1,9 @@
 k8s/kube-config.yml
 k8s/kubectl
+k0s/k0sctl
 
-.vagrant/
+k8s/k0sctl.yaml
+# virt manager
+.vmm/
+
+ansible/inventory.ini

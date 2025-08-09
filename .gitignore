@@ -1,6 +1,6 @@
 k8s/kube-config.yml
 k8s/kubectl
-k0s/k0sctl
+k8s/k0sctl
 
 k8s/k0sctl.yaml
 # virt manager

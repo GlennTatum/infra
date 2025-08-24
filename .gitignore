@@ -1,9 +1,23 @@
+# kubernetes
 k8s/kube-config.yml
 k8s/kubectl
 k8s/k0sctl
-
 k8s/k0sctl.yaml
-# virt manager
-.vmm/
+
+# Terraform
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
 
 ansible/inventory.ini
+
+# local settings
+.env.sh
+.terraform*
+
+# Azure
+# azure ssh bastion public key
+bastion.pub
+
+
+# virt manager
+.vmm/

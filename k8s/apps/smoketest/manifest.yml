@@ -44,7 +44,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: web.example.com # -H "Host: web.example.com" if dns is not configured
+  - host: web.example.com
     http:
       paths:
       - path: /
@@ -54,3 +54,5 @@ spec:
             name: web-server-service
             port:
               number: 5000
+
+# curl http://load-balancer-or-ingress-host -H "Host: web.example.com"

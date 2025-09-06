@@ -4,6 +4,9 @@ k8s/kubectl
 k8s/k0sctl
 k8s/k0sctl.yaml
 
+#cloud-init
+user-data.yaml
+
 # Terraform
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
@@ -13,6 +16,7 @@ ansible/inventory.ini
 # local settings
 .env.sh
 .terraform*
+*.img
 
 # Azure
 # azure ssh bastion public key

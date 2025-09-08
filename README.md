@@ -14,7 +14,7 @@ Developer friendly Kubernetes Infrastructure
 ### Installation
 1. Configure the nodes
 ```bash
-ansible-playbook -i inventory.ini --private-key ~/.ssh/private-key --user $REMOTE_USER -K playbook.yml
+ansible-playbook -i inventory.ini --private-key ~/.ssh/private-key --user $REMOTE_USER -K playbooks/cluster.yml
 ```
 2. Install kubernetes
 ```bash

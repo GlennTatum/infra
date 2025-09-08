@@ -1,13 +1,14 @@
 #!/bin/bash
 
-if [[ $1 == 'destroy' ]]; then
+if [[ $1 = 'destroy' ]]; then
     for ((NODE=1; NODE <= 5; NODE++)); do
-        while [ -n $(virsh list --all | grep ubuntu) ]; do
-            echo "Shutting down ubuntu-node-$NODE"
-            virsh shutdown ubuntu-node-$NODE 2> /dev/null
-            sleep 2
-        done
-        virsh undefine ubuntu-node-$NODE --remove-all-storage
+        echo "Shutting down ubuntu-node-$NODE"
+        virsh shutdown ubuntu-node-$NODE 2> /dev/null
+    done
+    sleep 5
+    for ((NODE=1; NODE <= 5; NODE++)); do
+        echo "Removing down ubuntu-node-$NODE"
+        virsh undefine ubuntu-node-$NODE --remove-all-storage 2> /dev/null
     done
     exit 0
 fi
@@ -15,7 +16,7 @@ fi
 virsh list --all | grep ubuntu-node 2> /dev/null
 
 if [ $? = 1 ]; then
-        if [ -z $(ls *\-[1-9].img 2> /dev/null) ]; then
+        if [[ -z $(ls *\-[1-9].img 2> /dev/null) ]]; then
             echo "Please run ./prerun.sh before configuring virtual machines"
             exit -1
         fi

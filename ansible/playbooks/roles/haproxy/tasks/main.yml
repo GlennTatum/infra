@@ -1,0 +1,21 @@
+- name: Install haproxy
+  ansible.builtin.apt:
+    name: haproxy
+    state: present
+
+- name: Configure HAProxy
+  ansible.builtin.template:
+    src: templates/haproxy.j2
+    dest: /etc/haproxy/haproxy.cfg
+  when: groups["haproxy"] is defined
+
+- name: Configure HAProxy (Azure)
+  ansible.builtin.template:
+    src: templates/haproxy.j2
+    dest: /etc/haproxy/haproxy.cfg
+  when: groups["azurerm_haproxy"] is defined
+
+- name: Restart HAProxy
+  ansible.builtin.systemd_service:
+    name: haproxy
+    state: reloaded

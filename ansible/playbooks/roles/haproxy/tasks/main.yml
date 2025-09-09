@@ -15,6 +15,18 @@
     dest: /etc/haproxy/haproxy.cfg
   when: groups["azurerm_haproxy"] is defined
 
+- name: Allow web traffic
+  community.general.ufw:
+    rule: allow
+    port: '80'
+    proto: tcp
+
+- name: Allow secure web traffic
+  community.general.ufw:
+    rule: allow
+    port: '443'
+    proto: tcp
+
 - name: Restart HAProxy
   ansible.builtin.systemd_service:
     name: haproxy

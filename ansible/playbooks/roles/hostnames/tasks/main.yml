@@ -1,0 +1,9 @@
+- name: Install American words
+  ansible.builtin.apt:
+    name: wamerican
+    state: present
+
+- name: Generate pseudo random hostname
+  ansible.builtin.shell: /usr/bin/echo ubuntu-$(/usr/bin/cat /usr/share/dict/american-english | /usr/bin/grep -v "'" | /usr/bin/shuf | /usr/bin/tail -n 1) > /etc/hostname
+  args:
+    executable: /bin/bash

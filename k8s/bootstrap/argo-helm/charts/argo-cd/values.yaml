@@ -2425,8 +2425,8 @@ server:
     # -- The list of additional hostnames to be covered by ingress record
     # @default -- `[]` (See [values.yaml])
     extraHosts:
-      # - name: argocd.deltawave-infra.com
-      #   path: /
+      - name: argocd.infra.site
+        path: /
 
     # -- Additional ingress paths
     # @default -- `[]` (See [values.yaml])

@@ -16,14 +16,24 @@ provider "azurerm" {
   }
 }
 
+
+
 module "groups" {
     source = "./modules/groups"
 }
 
-module "virt" {
-    source = "./modules/virt"
-}
-
 module "net" {
     source = "./modules/net"
+    resource_group_id = module.groups.azurerm_resource_group.id
+    resource_group_location = module.groups.azurerm_resource_group.location
+    resource_group_name = module.groups.azurerm_resource_group.name
+}
+
+module "virt" {
+    source = "./modules/virt"
+    resource_group_id = module.groups.azurerm_resource_group.id
+    resource_group_location = module.groups.azurerm_resource_group.location
+    resource_group_name = module.groups.azurerm_resource_group.name
+    bastion_nic = module.net.bastion_nic_id
+    load_balancer_nic = module.net.load_balancer_nic_id
 }

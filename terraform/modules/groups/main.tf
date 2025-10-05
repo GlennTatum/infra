@@ -1,8 +1,8 @@
-data "azurerm_resource_group" "rg" {
-    name = azurerm_resource_group.rg.name
+output "azurerm_resource_group" {
+  value = azurerm_resource_group.rg
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "global-infra-group-${var.region}"
+  name     = "node-infra-group-${var.region}"
   location = var.region
 }

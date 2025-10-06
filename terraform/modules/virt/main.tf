@@ -1,5 +1,8 @@
 locals {
     user = "azureuser"
+    applicationRoleBastion = "bastion"
+    applicationRoleLoadBalancer = "loadBalancer"
+    applicationRoleKubernetes = "kubernetes"
 }
 
 resource "azurerm_linux_virtual_machine" "global_bastion_vm" {
@@ -29,6 +32,10 @@ resource "azurerm_linux_virtual_machine" "global_bastion_vm" {
     sku       = "22_04-lts"
     version   = "latest"
   }
+
+  tags = { 
+    "applicationRole" = local.applicationRoleBastion
+   }
   
 }
 
@@ -59,6 +66,10 @@ resource "azurerm_linux_virtual_machine" "global_load_balancer_vm" {
     sku       = "22_04-lts"
     version   = "latest"
   }
+
+  tags = { 
+      "applicationRole" = local.applicationRoleLoadBalancer
+   }
   
 }
 
@@ -96,5 +107,9 @@ resource "azurerm_linux_virtual_machine_scale_set" "global_kubernetes_vm_scale_s
       primary   = true
       subnet_id = var.internal_subnet
     }
+  }
+
+  tags = { 
+    "applicationRole" = local.applicationRoleKubernetes  
   }
 }

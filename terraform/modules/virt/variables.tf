@@ -17,3 +17,7 @@ variable "bastion_nic" {
 variable "load_balancer_nic" {
     type = string
 }
+
+variable "internal_subnet" {
+    type = string
+}

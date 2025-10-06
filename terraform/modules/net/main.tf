@@ -11,6 +11,10 @@ resource "azurerm_virtual_network" "global_vnet" {
   address_space = ["172.16.0.0/16"]
 }
 
+output "private_subnet_internal" {
+  value = azurerm_subnet.global_subnet_internal.id
+}
+
 resource "azurerm_subnet" "global_subnet_internal" {
   name = "${local.name}-subnet-internal"
   resource_group_name = var.resource_group_name

@@ -1,0 +1,6 @@
+- name: Install cluster
+  hosts: nodes
+  become: true
+  roles:
+    - containerd
+    - firewall

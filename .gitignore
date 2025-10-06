@@ -1,5 +1,6 @@
 # kubernetes
 k8s/kube-config.yml
+k8s/kubeconfig.yml
 k8s/kubectl
 k8s/k0sctl
 k8s/k0sctl.yaml
@@ -10,6 +11,7 @@ user-data.yaml
 # Terraform
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
+*.backup
 
 ansible/inventory.ini
 

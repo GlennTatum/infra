@@ -13,7 +13,10 @@ terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 *.backup
 
+# Ansible
 ansible/inventory.ini
+ansible/.venv/
+ansible/inventory-azure*
 
 # local settings
 .env.sh

@@ -37,6 +37,6 @@ frontend proxy
   bind :80
   default_backend hosts
 backend hosts
-{% for host in groups["azurerm_agent"] %}
+{% for host in groups["azure_infra"]["nodes"] %}
 	server server{{ loop.index }} {{ host }}:30080
 {% endfor %}

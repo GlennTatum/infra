@@ -37,6 +37,8 @@ frontend proxy
   bind :80
   default_backend hosts
 backend hosts
+  option http-server-close
+  timeout tunnel 1h
 {% for host in groups["agent"] %}
 	server server{{ loop.index }} {{ host }}:30080
 {% endfor %}

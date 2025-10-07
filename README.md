@@ -31,9 +31,3 @@ k0s kubeconfig admin
 cd bootstrap/nginx-ingress
 helm install nginx-release . 
 ```
-4. Setup ArgoCD
-
-### Recommendations
-DNS Host Name Resolution (Local Development)
-- Use /etc/hosts for static hostname resolution
-- Use a service like CoreDNS to configure resolution
